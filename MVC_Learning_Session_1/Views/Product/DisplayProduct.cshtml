@@ -1,0 +1,31 @@
+﻿@model MVC_Learning_Session_1.Models.Product
+@{
+    ViewBag.Title = "DisplayProduct";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>DisplayProduct</h2>
+<table class="table">
+    <tr>
+        <th>Field Name</th>
+        <th>Description</th>
+    </tr>
+    <tr>
+        <td>@Html.DisplayNameFor(m=>m.Id)</td>
+        <td>@Html.DisplayFor(m=>m.Id)</td>
+    </tr>
+    <tr>
+        <td>@Html.DisplayNameFor(m=>m.Name)</td>
+        <td>@Html.DisplayFor(m=>m.Name)</td>
+    </tr>
+    <tr>
+        <td>@Html.DisplayNameFor(m=>m.Category)</td>
+        <td>@Html.DisplayFor(m=>m.Category)</td>
+    </tr>
+    <tr>
+        <td>@Html.DisplayNameFor(m=>m.Rate)</td>
+        <td>@Html.DisplayFor(m=>m.Rate)</td>
+    </tr>
+</table>
+
+<div>@Html.ActionLink("Back to list page ...","List")</div>

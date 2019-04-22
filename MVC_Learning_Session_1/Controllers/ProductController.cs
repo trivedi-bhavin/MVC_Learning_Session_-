@@ -26,6 +26,41 @@ namespace MVC_Learning_Session_1.Controllers
         {
             return View(products.ToList());
         }
-        
+        //Get: Product Detail Page - To display details of single product
+        public ActionResult DisplayProduct(int id)
+        {
+            var product = products.ToList().Where(p => p.Id == id).FirstOrDefault();
+            if (product == null)
+                return HttpNotFound();
+            
+              return View(product);
+        }
+        //Get: Product Edit
+        public ActionResult Edit(int? id)
+        {
+            if(id==null)
+            {
+                return new HttpStatusCodeResult(System.Net.HttpStatusCode.BadRequest);
+            }
+            var product = products.ToList().Where(p => p.Id == id).FirstOrDefault();
+            if (product==null)
+            {
+                return HttpNotFound();
+            }
+            return View(product);
+        }
+        //Post: Product Save
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit([Bind(Include ="Id,Name,Category,Rate")] Product product)
+        {
+            if(ModelState.IsValid)
+            {
+                /*Need to add logic to udpdate into database*/
+                return RedirectToAction("List");
+            }
+            return View(product);
+        }
+
     }
 }

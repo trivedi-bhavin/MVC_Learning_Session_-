@@ -19,6 +19,8 @@
             <td>@Html.DisplayFor(k=>item.Name)</td>
             <td>@Html.DisplayFor(k=>item.Category)</td>
             <td>@Html.DisplayFor(k=>item.Rate)</td>
+            <td>@Html.ActionLink("Details", "DisplayProduct",new { id=item.Id})</td>
+            <td>@Html.ActionLink("Edit","Edit",new { id=item.Id})</td>
         </tr>
     }
 </table>

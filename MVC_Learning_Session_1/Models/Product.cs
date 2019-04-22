@@ -12,6 +12,7 @@ namespace MVC_Learning_Session_1.Models
         public int Id { get; set; }
         public string Name { get; set; }
         public string Category { get; set; }
+        [Display(Name="Price")]
         public int Rate { get; set; }
     }
 }
