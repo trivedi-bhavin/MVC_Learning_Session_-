@@ -1,0 +1,30 @@
+﻿@{
+    Layout = null;
+    var myMessage = "Hello World";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title></title>
+</head>
+<body>
+    <div>
+        <table border="1">
+            <tr>
+                <td>Sample Razor Page @myMessage</td>
+                <td>Date: @DateTime.Now.ToShortDateString()</td>
+            </tr>
+            <tr>Table Data</tr>
+            @for (int i = 1; i <= 5; i++)
+            {
+                <tr>
+                <td>Value of i is @i</td>
+                </tr>
+            }
+        </table>    
+    </div>
+</body>
+</html>
