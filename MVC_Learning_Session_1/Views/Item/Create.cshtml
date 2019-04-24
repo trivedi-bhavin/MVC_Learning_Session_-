@@ -1,0 +1,29 @@
+﻿@model MVC_Learning_Session_1.Models.Item
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Create new Item</h2>
+@using (Html.BeginForm("Create"))
+{
+<div class="form-horizontal">
+    <div class="form-group">
+        @Html.LabelFor(m => m.ID)
+        @Html.EditorFor(m => m.ID)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Name)
+        @Html.EditorFor(m => m.Name)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Category)
+        @Html.EditorFor(m => m.Category)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Rate)
+        @Html.EditorFor(m => m.Rate)
+    </div>
+    <input type="submit" value="Submit" class="glyphicon-floppy-save" />
+</div>
+}

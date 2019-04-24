@@ -1,8 +1,10 @@
 ﻿using MVC_Learning_Session_1.Models;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Web.Helpers;
 using System.Web.Mvc;
 
 namespace MVC_Learning_Session_1.Controllers
@@ -61,6 +63,16 @@ namespace MVC_Learning_Session_1.Controllers
             }
             return View(product);
         }
-
+        public ActionResult JSONData()
+        {
+            var jsondata = JsonConvert.SerializeObject(products.ToList());
+            return Json(jsondata, JsonRequestBehavior.AllowGet);
+            //return Json(new {Id=101,Name="Dettol"}, JsonRequestBehavior.AllowGet);
+        }
+        public ActionResult Content()
+        {
+            //return Content("We will do it ...");
+            return Content(HttpUtility.HtmlEncode("We will do it"));
+        }
     }
 }

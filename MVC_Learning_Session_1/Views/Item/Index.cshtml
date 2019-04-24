@@ -1,0 +1,29 @@
+﻿@model IEnumerable<MVC_Learning_Session_1.Models.Item>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Item list</h2>
+@Html.ActionLink("Create new Item","Create")
+<table class="table">
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Category</th>
+        <th>Rate</th>
+    </tr>
+    @foreach(var item in Model)
+    {
+    <tr>
+        <td>@item.ID</td>
+        <td>@item.Name</td>
+        <td>@item.Category</td>
+        <td>@item.Rate</td>
+        <td>@Html.ActionLink("Edit", "Edit", new { id = item.ID })</td>
+        @* Use following Ajax Action Link For Post Call of Delete Method *@
+        @*<td>@Html.ActionLink("Delete", "Delete", new { id = item.ID }, new { onclick = "return confirm('You are about to delete record. Are you sure?');" })</td>*@
+        <td>    @Ajax.ActionLink("Delete Item", "Delete", new { id = item.ID}, new AjaxOptions { HttpMethod = "POST" }, new { onclick = "return confirm('You are about to delete record. Are you sure?');" })</td>
+    </tr>
+    }
+</table>
