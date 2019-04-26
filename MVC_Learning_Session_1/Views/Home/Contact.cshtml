@@ -3,6 +3,29 @@
 }
 <h2>@ViewBag.Title.</h2>
 <h3>@ViewBag.Message</h3>
+@*Full Page Post Back - Following Ajax code used to share partial page update*@
+@*<div id="formSection">
+    <div>@ViewBag.Message</div>
+    <form method="Post" id="contactForm">
+        <textarea name="message" id="message"></textarea>
+        <input type="submit" value="Send" />
+    </form>
+</div>*@
+
+<div id="formSection">
+    @using (Ajax.BeginForm(new AjaxOptions { HttpMethod = "post", InsertionMode = InsertionMode.Replace, UpdateTargetId = "formSection" }))
+    {
+        <div>@ViewBag.Message</div>
+        <textarea name="message" id="message"></textarea>
+        <input type="submit" value="Send" />
+
+    }
+
+</div>
+
+@section scripts{
+<script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+}
 
 <address>
     One Microsoft Way<br />

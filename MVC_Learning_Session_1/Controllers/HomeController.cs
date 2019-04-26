@@ -26,5 +26,11 @@ namespace MVC_Learning_Session_1.Controllers
 
             return View();
         }
+        [HttpPost]
+        public ActionResult Contact(string message)
+        {
+            ViewBag.Message = "Thank you for your feedback";
+            return View();
+        }
     }
 }

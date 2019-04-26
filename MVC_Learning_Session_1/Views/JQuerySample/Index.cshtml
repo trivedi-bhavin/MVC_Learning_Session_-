@@ -1,0 +1,75 @@
+﻿
+@{
+    ViewBag.Title = "Sample page to access Controller Method using JQuery";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<h2>Index</h2>
+<div id="dv1"></div>
+<input type="text" id="txtName" />
+<input type="button" id="btnGet" value="Submit" />
+
+<input type="button" id="btn1" value="Submit - AJAX" />
+<script>
+    $(document).ready(function () {
+        $('#btn1').click(function () {
+           // alert("Hello World"); //Show the alert
+            $.ajax(
+                {
+                    type: "POST",
+                    url: "/JQuerySample/GetJson",
+                    //data: "{}",
+                    datatype: "json",
+                    success: function (response) {
+                        alert(response.ID + " - " + response.Name);
+                       // console.log('Info:');
+                       
+                    },
+                    failure: function (response) {
+                        alert(response.responseText);
+                    },
+                    error: function (response) {
+                        alert(response.responseText)
+                    }
+
+                }
+                );
+        });
+        $('#btnGet').click(function () {
+            alert("Hello World - Submit - First Button- Multiple "); //Show the alert
+        });
+       
+    });
+    
+</script>
+<script>
+    //$(document).ready(function () {
+    //    $('#btnGet').click(function () {
+    //        //event.preventDefault(); //This prevents the default action
+    //        alert("Hello World - Submit - First Button"); //Show the alert
+    //    });
+    //});
+</script>
+
+@*<script type="text/javascript">
+    $(function () {
+        $("#btnGet").click(function () {
+            $.ajax({
+                type: "POST",
+                url: "/JQuerySample/GetJson",
+                data: '{name: "' + $("#txtName").val() + '" }',
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                success: function (response) {
+                    alert("Hello: " + response.ID + " : " + response.Name);
+                },
+                failure: function (response) {
+                    alert(response.responseText);
+                },
+                error: function (response) {
+                    alert(response.responseText);
+                }
+            });
+        });
+    });*@
+@*</script>*@

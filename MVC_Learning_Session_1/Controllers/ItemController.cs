@@ -48,6 +48,14 @@ namespace MVC_Learning_Session_1.Controllers
             return RedirectToAction("Index");
 
         }
+        public ActionResult ItemLOVDemo()
+        {
+
+            var itemList = DBMethods.GetItemList();
+           SelectList Items = new SelectList(itemList, "Id", "Name");
+            ViewBag.ItemList = Items;
+            return View();
+        }
     }
    
 }
