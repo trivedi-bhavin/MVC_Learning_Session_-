@@ -5,15 +5,19 @@
 }
 <script src="~/Scripts/jquery-1.10.2.min.js"></script>
 <h2>Index</h2>
-<div id="dv1"></div>
+<div id="dv1">Content goes here</div>
 <input type="text" id="txtName" />
 <input type="button" id="btnGet" value="Submit" />
-
+<textarea id="txtAns" rows="10" cols="50"></textarea>
 <input type="button" id="btn1" value="Submit - AJAX" />
+<hr />
+
+<input type="button" id="btnData" value="Get JSON Data of Item List" />
+
 <script>
     $(document).ready(function () {
         $('#btn1').click(function () {
-           // alert("Hello World"); //Show the alert
+            // alert("Hello World"); //Show the alert
             $.ajax(
                 {
                     type: "POST",
@@ -22,8 +26,7 @@
                     datatype: "json",
                     success: function (response) {
                         alert(response.ID + " - " + response.Name);
-                       // console.log('Info:');
-                       
+                        // console.log('Info:');
                     },
                     failure: function (response) {
                         alert(response.responseText);
@@ -31,24 +34,47 @@
                     error: function (response) {
                         alert(response.responseText)
                     }
-
                 }
-                );
+            );
         });
         $('#btnGet').click(function () {
             alert("Hello World - Submit - First Button- Multiple "); //Show the alert
         });
-       
+        $("#btnData").click(function () {
+            $.ajax(
+                {
+                    type: "POST",
+                    url: "/JQuerySample/GetItemListJson",
+                    success: function (result) {
+                        alert("Success ..." + JSON.stringify(result));
+                        //$("#dv1").innerText = JSON.stringify(result);
+                        document.getElementById("dv1").innerHTML = JSON.stringify(result);
+                        alert("Total Elements: " + result.length);
+                        for (i = 0; i < result.length; i++)
+                        {
+                           // console.log(i);
+                            alert(result[i].ID);
+                        }
+                    },
+                    failure: function (result) {
+                        $("#dv1").html = "Failure ...";
+                    },
+                    error: function (result) {
+                        $("#dv1").html = "Error";
+                    }
+                }
+            );
+        });
     });
-    
+
 </script>
 <script>
-    //$(document).ready(function () {
-    //    $('#btnGet').click(function () {
-    //        //event.preventDefault(); //This prevents the default action
-    //        alert("Hello World - Submit - First Button"); //Show the alert
-    //    });
-    //});
+        //$(document).ready(function () {
+        //    $('#btnGet').click(function () {
+        //        //event.preventDefault(); //This prevents the default action
+        //        alert("Hello World - Submit - First Button"); //Show the alert
+        //    });
+        //});
 </script>
 
 @*<script type="text/javascript">
