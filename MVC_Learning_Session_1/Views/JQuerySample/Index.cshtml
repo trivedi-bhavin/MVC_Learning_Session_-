@@ -41,10 +41,18 @@
             alert("Hello World - Submit - First Button- Multiple "); //Show the alert
         });
         $("#btnData").click(function () {
-            $.ajax(
+            var item = new Object();
+            item.ID = 101;
+            item.Name = "Cinthol-New",
+            item.Category = "A";
+            item.Rate = 10;
+                $.ajax(
                 {
-                    type: "POST",
-                    url: "/JQuerySample/GetItemListJson",
+                        type: "POST",
+                        url: "/JQuerySample/GetItemListJson",
+                        data: JSON.stringify(item),
+                        contentType: "application/json; charset=utf-8",
+                        dataType:"Json",
                     success: function (result) {
                         alert("Success ..." + JSON.stringify(result));
                         //$("#dv1").innerText = JSON.stringify(result);
