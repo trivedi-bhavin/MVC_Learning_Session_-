@@ -4,6 +4,8 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using MVC_Learning_Session_1.Models;
+using Newtonsoft.Json;
+
 namespace MVC_Learning_Session_1.Controllers
 {
     public class ItemController : Controller
@@ -13,6 +15,11 @@ namespace MVC_Learning_Session_1.Controllers
         {
             var itemList = DBMethods.GetItemList();
             return View(itemList);
+        }
+        public ActionResult ItemList()
+        {
+            var itemList = DBMethods.GetItemList();
+            return View();
         }
         //Get: Open Page to insert new Item
         public ActionResult Create()
@@ -51,10 +58,18 @@ namespace MVC_Learning_Session_1.Controllers
         public ActionResult ItemLOVDemo()
         {
 
-            var itemList = DBMethods.GetItemList();
+           var itemList = DBMethods.GetItemList();
            SelectList Items = new SelectList(itemList, "Id", "Name");
-            ViewBag.ItemList = Items;
-            return View();
+           ViewBag.ItemList = Items;
+           return View();
+        }
+        //Get Item List in JSON Format
+        public ActionResult ItemJSONData()
+        {
+            var itemList = DBMethods.GetItemList();
+
+            var jsondata = JsonConvert.SerializeObject(itemList);
+            return Json(jsondata, JsonRequestBehavior.AllowGet);
         }
     }
    
