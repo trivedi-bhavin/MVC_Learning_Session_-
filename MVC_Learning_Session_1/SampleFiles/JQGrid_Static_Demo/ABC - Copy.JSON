@@ -1,0 +1,15 @@
+[
+	{
+		"ID":101,
+		"Name":"Dettol",
+		"Category":"A",
+		"Rate":10.0
+	},
+	{
+		"ID":102,
+		"Name":"Cinthol",
+		"Category":"B",
+		"Rate":20.0
+	}
+]
+

@@ -1,0 +1,59 @@
+﻿ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/cupertino/jquery-ui.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/free-jqgrid/4.13.5/css/ui.jqgrid.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/free-jqgrid/4.13.5/js/jquery.jqgrid.min.js"></script>
+  <title>js-tutorials.com : JqGrid jquery simple example and uses </title>
+  
+</head>
+<body>
+  <div class="container" style="padding:50px;width:100%">
+    <h1>Demo : jQuery jqGrid listing using JSON Data</h1>
+	<div id="header"></div>
+	<table id="photos" class="display" cellspacing="0" width="100%">
+    </table>
+	<div id="pager2"></div>
+	<div id="footer"></div>
+  </div>
+</body>
+</html>
+<script type="text/javascript">
+  
+	
+	$("#photos").jqGrid({
+        //url: 'https://jsonplaceholder.typicode.com/posts',
+        //datatype: "json",
+        //colNames: ['ID', 'User ID', 'Title', 'Body'],
+        //colModel: [
+        //    { name: 'id', index: 'id', width: 55 },
+        //    { name: 'userId', index: 'userId', width: 75 },
+        //    { name: 'title', index: 'title', width: 300 },
+        //    { name: 'body', index: 'body', width: 530, sortable: false }		
+
+        url: 'ABC.JSON',
+            datatype: "json",
+            colNames: ['ID','Name','Category','Rate'],
+            colModel: [
+                { name: 'ID', width: 55 },
+                { name: 'Name', width: 100},
+                { name: 'Category', width: 100},
+                { name: 'Rate', width: 100}
+
+              
+		],
+		rowNum:10,
+		loadonce: true,
+		rowList:[10,20,30],
+		pager: '#pager2',
+		sortname: 'ID',
+		viewrecords: true,
+		sortorder: "desc",
+		caption:""
+	});
+	
+  
+</script>

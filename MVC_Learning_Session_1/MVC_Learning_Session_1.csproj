@@ -200,11 +200,15 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="SampleFiles\JQGrid_Static_Demo\First.HTML" />
+    <Content Include="SampleFiles\JQGrid_Static_Demo\Second.html" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="SampleFiles\JQGrid_Static_Demo\ABC - Copy.JSON" />
+    <Content Include="SampleFiles\JQGrid_Static_Demo\ABC.JSON" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\i18n\grid.locale-ar.js" />
     <Content Include="Scripts\i18n\grid.locale-bg.js" />
