@@ -16,9 +16,16 @@ namespace MVC_Learning_Session_1.Controllers
             var itemList = DBMethods.GetItemList();
             return View(itemList);
         }
+        /*Open Item list to display data in JQGrid First Example*/
         public ActionResult ItemList()
         {
-            var itemList = DBMethods.GetItemList();
+            //var itemList = DBMethods.GetItemList();
+            return View();
+        }
+        /*Open Item list to display data in JQGrid Second Example*/
+        public ActionResult ItemList1()
+        {
+            //var itemList = DBMethods.GetItemList();
             return View();
         }
         //Get: Open Page to insert new Item
@@ -64,12 +71,13 @@ namespace MVC_Learning_Session_1.Controllers
            return View();
         }
         //Get Item List in JSON Format
-        public ActionResult ItemJSONData()
+        public JsonResult ItemJSONData()
         {
             var itemList = DBMethods.GetItemList();
 
-            var jsondata = JsonConvert.SerializeObject(itemList);
-            return Json(jsondata, JsonRequestBehavior.AllowGet);
+            // var jsondata = JsonConvert.SerializeObject(itemList);
+            // return Json(jsondata, JsonRequestBehavior.AllowGet);
+            return Json(itemList, JsonRequestBehavior.AllowGet);
         }
     }
    

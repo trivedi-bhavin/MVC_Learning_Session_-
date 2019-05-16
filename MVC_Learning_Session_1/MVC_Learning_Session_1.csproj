@@ -296,6 +296,7 @@
     <Content Include="Views\Item\ItemLOVDemo.cshtml" />
     <Content Include="Views\JQuerySample\Index.cshtml" />
     <Content Include="Views\Item\ItemList.cshtml" />
+    <Content Include="Views\Item\ItemList1.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

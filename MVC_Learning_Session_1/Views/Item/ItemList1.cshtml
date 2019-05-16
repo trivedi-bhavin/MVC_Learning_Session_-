@@ -1,0 +1,45 @@
+﻿
+@{
+    ViewBag.Title = "ItemList1";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<head>
+    @* Local Files for JQ Grid Demo. Access Data From MVC Controller *@
+    <link href="~/Content/themes/base/jquery.ui.all.css" rel="stylesheet" />
+    <link href="~/Content/jquery.jqGrid/ui.jqgrid.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <script src="~/Scripts/jquery.jqGrid.min.js"></script>
+    <script src="~/Scripts/i18n/grid.locale-en.js"></script>
+</head>
+<body>
+    <h2>ItemList1</h2>
+    <div class="container" style="padding:50px;width:100%">
+        <h1>Demo : jQuery jqGrid listing using JSON Data</h1>
+        <div id="header"></div>
+        <table id="photos" class="display" cellspacing="0" width="100%"></table>
+        <div id="pager2"></div>
+        <div id="footer"></div>
+    </div>  
+</body>
+<script type="text/javascript">
+    $("#photos").jqGrid({
+        url: '/Item/ItemJSONData',
+        datatype: "json",
+        colNames: ['ID', 'Name', 'Category', 'Rate'],
+        colModel: [
+            { name: 'ID', width: 55 },
+            { name: 'Name', width: 100 },
+            { name: 'Category', width: 100 },
+            { name: 'Rate', width: 100 }
+        ],
+        rowNum: 10,
+        loadonce: true,
+        rowList: [10, 20, 30],
+        pager: '#pager2',
+        sortname: 'ID',
+        viewrecords: true,
+        sortorder: "desc",
+        caption: ""
+    });
+</script>
+
