@@ -1,28 +1,36 @@
-﻿
+﻿@*Good Tutorial for jqGrid: http://www.guriddo.net/documentation/guriddo/javascript/ *@
 @{
     ViewBag.Title = "ItemList1";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 <head>
     @* Local Files for JQ Grid Demo. Access Data From MVC Controller *@
+
     <link href="~/Content/themes/base/jquery.ui.all.css" rel="stylesheet" />
     <link href="~/Content/jquery.jqGrid/ui.jqgrid.css" rel="stylesheet" />
+
+    
     <script src="~/Scripts/jquery-1.10.2.min.js"></script>
     <script src="~/Scripts/jquery.jqGrid.min.js"></script>
     <script src="~/Scripts/i18n/grid.locale-en.js"></script>
+ 
 </head>
-<body>
     <h2>ItemList1</h2>
     <div class="container" style="padding:50px;width:100%">
         <h1>Demo : jQuery jqGrid listing using JSON Data</h1>
         <div id="header"></div>
-        <table id="photos" class="display" cellspacing="0" width="100%"></table>
-        <div id="pager2"></div>
+        <table id="grid" class="display" cellspacing="0"></table>
+        <div id="pager"></div>
         <div id="footer"></div>
-    </div>  
-</body>
+    </div>
+<div>
+    <input type="button" value="Selected" onclick="Hello()" />
+</div>
 <script type="text/javascript">
-    $("#photos").jqGrid({
+    $.jgrid.defaults.styleUI = 'Bootstrap4';
+    $.jgrid.defaults.iconSet = 'Octicons';
+
+    $("#grid").jqGrid({
         url: '/Item/ItemJSONData',
         datatype: "json",
         colNames: ['ID', 'Name', 'Category', 'Rate'],
@@ -32,14 +40,34 @@
             { name: 'Category', width: 100 },
             { name: 'Rate', width: 100 }
         ],
-        rowNum: 10,
+        rowNum: 5,   /*To display number of records in one page - default it is 20*/
+        height: 'auto',
+        width: 'auto',
         loadonce: true,
         rowList: [10, 20, 30],
-        pager: '#pager2',
+        pager: '#pager',
         sortname: 'ID',
         viewrecords: true,
         sortorder: "desc",
-        caption: ""
+        caption: "",
+        search: {
+            caption: "Search...",
+            Find: "Find",
+            Reset: "Reset",
+            odata: ['equal', 'not equal', 'less', 'less or equal', 'greater', 'greater or equal', 'begins with', 'does not begin with', 'is in', 'is not in', 'ends with', 'does not end with', 'contains', 'does not contain'],
+            groupOps: [{ op: "AND", text: "all" }, { op: "OR", text: "any" }],
+            matchText: " match",
+            rulesText: " rules"
+        }
     });
+    jQuery("#grid").jqGrid('navGrid', '#pager', { search: true, add: true, edit: true, del: true });
+    function Hello() {
+        alert('Hello World');
+        //var grid = $("#grid").jqGrid;
+        //var key = grid.caption;
+        //alert(key);
+
+    }
+
 </script>
 
