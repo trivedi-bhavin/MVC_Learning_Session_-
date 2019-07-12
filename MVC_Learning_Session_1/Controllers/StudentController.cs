@@ -19,7 +19,7 @@ namespace MVC_Learning_Session_1.Controllers
         //Reference Article - Learning -https://www.pluralsight.com/guides/asp.net-mvc-getting-default-data-binding-right-for-hierarchical-views
         [HttpPost]
         public ActionResult SubmitData(Student obj)
-        {
+         {
             Student item = obj;
            
             string id = Request["Id"];

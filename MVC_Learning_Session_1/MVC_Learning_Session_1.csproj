@@ -156,6 +156,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ItemController.cs" />
     <Compile Include="Controllers\JQuerySampleController.cs" />
+    <Compile Include="Controllers\MathOperationsController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Controllers\RazorSampleController.cs" />
     <Compile Include="Controllers\StudentController.cs" />
@@ -165,6 +166,7 @@
     <Compile Include="Models\DBMethods.cs" />
     <Compile Include="Models\Dummy_Test_DBContext.cs" />
     <Compile Include="Models\Item.cs" />
+    <Compile Include="Models\MathOperations.cs" />
     <Compile Include="Models\Product.cs" />
     <Compile Include="Models\Student.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -302,6 +304,8 @@
     <Content Include="Views\Item\ItemList.cshtml" />
     <Content Include="Views\Item\ItemList1.cshtml" />
     <Content Include="Views\Student\Index.cshtml" />
+    <Content Include="Views\MathOperations\Index.cshtml" />
+    <Content Include="Views\MathOperations\MathOp1.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -1,0 +1,48 @@
+﻿@model MVC_Learning_Session_1.Models.MathOperations
+
+@{
+    ViewBag.Title = "MathOp1";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Math Operations using HTML Form and Form Binding using Multiple Button to call differnt method of controller using HTML FormAction Attribute</h2>
+<div class="container form-group">
+    @using (Html.BeginForm())
+    {
+        <div class="row ">
+            <label class="col-sm-2 ">Enter Value 1</label>
+            <input class="col-sm-2" type="number" id="Value1" name="Value1" value=@Model.Value1 />
+            @*@Html.TextBoxFor(m => m.Value1, new { @class = "col-sm-2" })*@
+        </div>
+        <div class="row ">
+            <label class="col-sm-2">Enter Value 2</label>
+            @*<input class="col-sm-2" type="number" id="Value2" name="Value2" value=@Model.Value2 />*@
+            <input class="col-sm-2" type="number" id="Value1" name="Value2" value=@Model.Value2 />
+        </div>
+        <div class="row ">
+            <label class="col-sm-2">Answer</label>
+            <input class="col-sm-2" type="number" id="Result" name="Result" value=@Model.Result readonly />
+        </div>
+        <div class="row mb-3 ">
+            @*<label class="col-sm-2">Operation</label>
+                <label class="col-sm-2"><input class="col-sm-1 radio-inline" type="radio" value="1" id="Result" name="Operation" />Addition</label>
+                <label class="col-sm-2"><input class="col-sm-1 radio-inline" type="radio" value="2" id="Result" name="Operation" />Subtration</label>
+                <label class="col-sm-2"><input class="col-sm-1 radio-inline" type="radio" value="3" id="Result" name="Operation" />Multiplication</label>
+                <label class="col-sm-2"><input class="col-sm-1 radio-inline" type="radio" value="4" id="Result" name="Operation" />Divison</label>*@
+
+        </div>
+        <div class="row mb-3 ">
+            <input type="submit" value="Addition" formaction=@Url.Action("Addition") formmethod="post" class="btn btn-primary" name="Operation" />
+            <input type="submit" value="Subtraction" formaction=@Url.Action("Subtraction") formmethod="post" class="btn btn-primary" name="Operation" />
+            <input type="submit" value="Multiplication" formaction=@Url.Action("Multiplication") formmethod="post" class="btn btn-primary" name="Operation" />
+            <input type="submit" value="Divison" formaction=@Url.Action("Divison") formmethod="post" class="btn btn-primary" name="Operation" />
+        </div>
+
+        <div class="row ">
+            <input type="text" id="txt1" name="txt1" value="@DateTime.Now.ToString()" />
+            <label id="lblOperations" name="Operation">@Model.Operation</label>
+        </div>
+
+    }
+</div>
+

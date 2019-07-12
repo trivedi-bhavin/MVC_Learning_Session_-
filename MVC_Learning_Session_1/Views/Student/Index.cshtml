@@ -49,6 +49,27 @@
         <div class="form-group">
             <input type="submit" value="submit" />
         </div>
+        <div class="row">
+            <table id="tb1" name="tb1" class="table table-bordered" >
+                <tr>
+                    <td>
+                        <input type="checkbox" id="chk1" name="chk1" value="checked" />
+                    </td>
+                    <td>
+                        <input type="text" id="txt1" name="txt1" value="101" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="checkbox" id="chk1" name="chk1" />
+                    </td>
+                    <td>
+                        <input type="text" id="txt1" name="txt1" value="102" />
+                    </td>
+                </tr>
+            </table>
+            <input type="button" id="btn1" name="btn1" value="Iterate Table Row" />
+        </div>
     </div>
 
 }
@@ -68,7 +89,7 @@
             url: '/Student/SubmitData',     //Submitted using method to pass data as a string
             data: data1, //{"Id": 101, "Name": "Narayan", "Subjects": [{ "SubjectId": 201, "SubjectName": "C Language", "Status": true, "IsSelected": true }]},
             success: function (result) {
-                alert(result);
+                //alert(result);
             }
         });
 
@@ -101,5 +122,18 @@
         return (JSON.stringify(StudentList));
        // return StudentList;
     }
+    $("#btn1").click(function () {
+        alert("Hello Table");
+        var parameters = [];
+        $('#tb1 tr').each(function () {
+            var td = $('td', this);
+            parameters.push({
+                //id: $('input[name="chk1"]', td).is(':checked')
+                id: $('input[name="chk1"]', td).prop("checked"),
+                name: $('input[name="txt1"]', td).val()
+            });
+        })
+        console.log(parameters);
+    });
 </script>
 

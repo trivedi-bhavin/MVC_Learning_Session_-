@@ -1,0 +1,48 @@
+﻿@model MVC_Learning_Session_1.Models.MathOperations
+
+@{
+    ViewBag.Title = "Math Operations using HTML Form and Form Binding using Same Button Name";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Math Operations using HTML Form and Form Binding using Same Button Name</h2>
+<div class="container form-group">
+    @using (Html.BeginForm("GetResult", "MathOperations", new { Id = 1010 }, FormMethod.Post))
+    {
+    <div class="row ">
+        <label class="col-sm-2 ">Enter Value 1</label>
+        <input class="col-sm-2" type="number" id="Value1" name="Value1" value=@Model.Value1  />
+        @*@Html.TextBoxFor(m => m.Value1, new { @class = "col-sm-2" })*@
+    </div>
+    <div class="row ">
+        <label class="col-sm-2">Enter Value 2</label>
+        @*<input class="col-sm-2" type="number" id="Value2" name="Value2" value=@Model.Value2 />*@
+        <input class="col-sm-2" type="number" id="Value1" name="Value2" value=@Model.Value2 />
+    </div>
+        <div class="row ">
+            <label class="col-sm-2">Answer</label>
+            <input class="col-sm-2" type="number" id="Result" name="Result" value=@Model.Result  readonly/>
+        </div>
+        <div class="row mb-3 ">
+            @*<label class="col-sm-2">Operation</label>
+            <label class="col-sm-2"><input class="col-sm-1 radio-inline" type="radio" value="1" id="Result" name="Operation" />Addition</label>
+            <label class="col-sm-2"><input class="col-sm-1 radio-inline" type="radio" value="2" id="Result" name="Operation" />Subtration</label>
+            <label class="col-sm-2"><input class="col-sm-1 radio-inline" type="radio" value="3" id="Result" name="Operation" />Multiplication</label>
+            <label class="col-sm-2"><input class="col-sm-1 radio-inline" type="radio" value="4" id="Result" name="Operation" />Divison</label>*@
+
+        </div>
+        <div class="row mb-3 ">
+            <input type="submit" value="Addition" class="btn btn-primary" name="Operation" />
+            <input type="submit" value="Subtraction" class="btn btn-primary" name="Operation" />
+            <input type="submit" value="Multiplication" class="btn btn-primary" name="Operation" />
+            <input type="submit" value="Divison" class="btn btn-primary" name="Operation" />
+        </div>
+
+        <div class="row ">
+            <input type="text" id="txt1" name="txt1" value="@DateTime.Now.ToString()" />
+            <label id="lblOperations" name="Operation">@Model.Operation</label>
+        </div>
+
+    }
+</div>
+
