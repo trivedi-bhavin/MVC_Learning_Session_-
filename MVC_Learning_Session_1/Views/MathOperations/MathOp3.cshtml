@@ -1,0 +1,54 @@
+﻿@*@model MVC_Learning_Session_1.Models.MathOperations*@
+
+@{
+    ViewBag.Title = "MathOp3";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+<h2>MathOp3</h2>
+
+<div class="container form-group">
+    @*@using (Html.BeginForm("AdditionJSON", "MathOperations", FormMethod.Post))*@
+
+    @using (Ajax.BeginForm("AdditionJSON", "MathOperations", new AjaxOptions {  OnSuccess= "OnSuccess", OnFailure= "OnFailure" }))
+    {
+        <div class="row ">
+            <label class="col-sm-2 ">Enter Value 1</label>
+            <input class="col-sm-2" type="number" id="Value1" name="Value1"  />
+
+        </div>
+        <div class="row ">
+            <label class="col-sm-2">Enter Value 2</label>
+
+            <input class="col-sm-2" type="number" id="Value1" name="Value2"  />
+        </div>
+        <div class="row" id="divAns">
+            <label class="col-sm-2">Answer</label>
+            <input class="col-sm-2" type="number" id="Result" name="Result" readonly  />
+        </div>
+
+        <div class="row mb-3 ">
+            <input type="submit" value="Addition" class="btn btn-primary" name="Operation" />
+            <input type="submit" value="Subtraction" class="btn btn-primary" name="Operation" />
+            <input type="submit" value="Multiplication" class="btn btn-primary" name="Operation" />
+            <input type="submit" value="Divison" class="btn btn-primary" name="Operation" />
+        </div>
+
+        <div class="row ">
+            <input type="text" id="txt1" name="txt1" value="@DateTime.Now.ToString()" />
+
+        </div>
+
+    }
+</div>
+<script>
+    function OnSuccess(result) {
+        //alert('Hello ' + result.Result);
+        //console.log(result);
+        $("#Result").val(result);
+    }
+    function OnFailure(response) {
+        alert('Something went wrong!!!' + response)
+    }
+</script>

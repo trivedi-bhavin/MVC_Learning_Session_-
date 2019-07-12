@@ -55,5 +55,26 @@ namespace MVC_Learning_Session_1.Controllers
             obj.Result = obj.Value1 / obj.Value2;
             return View("MathOp1", obj);
         }
+        //Open View - To learn about AJAX.BeginForm - which update only anwer and retain value of remaining controls
+        public ActionResult MathOp3()
+        {
+            MathOperations obj = new MathOperations();
+            return View(obj);
+        }
+        [HttpPost]
+        public JsonResult AdditionJSON(decimal Value1, Decimal Value2, String Operation)
+        {
+            Decimal Result = 0;
+            if (Operation == "Addition")
+                Result = Value1 + Value2;
+            else if (Operation == "Subtraction")
+                Result = Value1 - Value2;
+            else if (Operation == "Multiplication")
+                Result = Value1 * Value2;
+            else if (Operation == "Divison")
+                Result = Value1 / Value2;
+
+            return Json( Result, JsonRequestBehavior.AllowGet);
+        }
     }
 }

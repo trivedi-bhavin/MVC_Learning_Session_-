@@ -306,6 +306,7 @@
     <Content Include="Views\Student\Index.cshtml" />
     <Content Include="Views\MathOperations\Index.cshtml" />
     <Content Include="Views\MathOperations\MathOp1.cshtml" />
+    <Content Include="Views\MathOperations\MathOp3.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
