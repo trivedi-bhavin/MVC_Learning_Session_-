@@ -1,0 +1,24 @@
+﻿
+@{
+    ViewBag.Title = "StateMgtDemoWrite";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>State Manageent - Write to Session Variables</h2>
+
+@using (Html.BeginForm("StateMgtDemoWrite", "StateMgt"))
+{
+    <div class="container ">
+        <div class="row form-group">
+            <label>Enter Name 1</label>
+            <input type="text" name="Name1" id="Name1" />
+        </div>
+        <div class="row form-group">
+            <label>Enter Name 2</label>
+            <input type="text" name="Name2" id="Name2"  />
+        </div>
+        <div class="row form-group">
+            <input type="submit" value="Write to ViewBag" name="BtnWrite" id="BtnWrite" />
+        </div>
+    </div>
+}

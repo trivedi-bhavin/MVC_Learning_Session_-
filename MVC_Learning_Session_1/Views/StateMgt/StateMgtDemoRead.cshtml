@@ -1,0 +1,25 @@
+﻿
+@{
+    ViewBag.Title = "StateMgtDemoRead";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>State Management - Read Details from Session State</h2>
+
+
+@using (Html.BeginForm("StateMgtDemoRead", "StateMgt"))
+{
+    <div class="container ">
+        <div class="row form-group">
+            <label>Enter Name</label>
+            <input type="text" name="Name1" id="Name1"  value="@Session["Name1"]"/>
+        </div>
+        <div class="row form-group">
+            <label>Read Name</label>
+            <input type="text" name="Name2" id="Name2" value="@Session["Name2"]"/>
+        </div>
+        <div class="row form-group">
+            <input type="submit" value="Overwrite to Session" name="BtnWrite" id="BtnWrite" />
+        </div>
+    </div>
+}

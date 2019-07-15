@@ -159,6 +159,7 @@
     <Compile Include="Controllers\MathOperationsController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Controllers\RazorSampleController.cs" />
+    <Compile Include="Controllers\StateMgtController.cs" />
     <Compile Include="Controllers\StudentController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -307,6 +308,11 @@
     <Content Include="Views\MathOperations\Index.cshtml" />
     <Content Include="Views\MathOperations\MathOp1.cshtml" />
     <Content Include="Views\MathOperations\MathOp3.cshtml" />
+    <Content Include="Views\StateMgt\Index.cshtml" />
+    <Content Include="Views\StateMgt\ViewBagDemo.cshtml" />
+    <Content Include="Views\StateMgt\TempDataDemo.cshtml" />
+    <Content Include="Views\StateMgt\StateMgtDemoWrite.cshtml" />
+    <Content Include="Views\StateMgt\StateMgtDemoRead.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

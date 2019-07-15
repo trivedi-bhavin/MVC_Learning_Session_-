@@ -1,0 +1,19 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+<div class="container">
+    <ul>
+        <li>Hidden Field</li>
+        <li>Query String</li>
+        <li>ViewData</li>
+        <li><a href=@Url.Action("ViewBagDemo","StateMgt", new { Name1="First Instace from Parent Page"})>ViewBag</a></li>
+        <li><a href=@Url.Action("TempDataDemo", "StateMgt")>TempData</a></li>
+        <li><a href=@Url.Action("StateMgtDemoWrite","StateMgt")>Write to Session Variable</a></li>
+        <li><a href=@Url.Action("StateMgtDemoRead","StateMgt")>Read From Variable</a></li>
+        <li>Cookies</li>
+    </ul>
+</div>

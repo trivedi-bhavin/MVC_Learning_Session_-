@@ -1,0 +1,37 @@
+﻿
+@{
+    ViewBag.Title = "TempDataDemo";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>TempDataDemo</h2>
+
+
+@using (Html.BeginForm("TempDataDemo", "StateMgt"))
+{
+    <div class="container ">
+        <div class="row form-group">
+            <label>Enter Name</label>
+            <input type="text" name="Name1" id="Name1" />
+        </div>
+        <div class="row form-group">
+            <label>Read Name</label>
+            @{
+                var Name1 = @TempData["Name1"];
+            }
+            @if (Name1 != null)
+            {
+                <input type="text" name="Name2" id="Name2" value="@Name1" />
+            }
+            else
+            {
+                <input type="text" name="Name2" id="Name2" value="TempData[Name1] is null" />
+            }
+
+        </div>
+        <div class="row form-group">
+            <input type="submit" value="Write to TempData" name="BtnWrite" id="BtnWrite" />
+            <input type="submit" value="Read from TempData" name="BtnRead" id="BtnRead" />
+        </div>
+    </div>
+}

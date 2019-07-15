@@ -1,0 +1,24 @@
+﻿
+@{
+    ViewBag.Title = "ViewBagDemo";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>ViewBagDemo</h2>
+
+@using(Html.BeginForm("TempDataDemo", "StateMgt")) { 
+<div class="container ">
+    <div class="row form-group">
+        <label>Enter Name</label>
+        <input type="text" name="Name1" id="Name1" />
+    </div>
+    <div class="row form-group">
+        <label>Read Name</label>
+        <input type="text" name="Name2" id="Name2" value="@ViewBag.Name1"/>
+    </div>
+    <div class="row form-group">
+        <input type="submit" value="Write to ViewBag" name="BtnWrite" id="BtnWrite" />
+        <input type="submit" value="Read from ViewBag" name="BtnRead" id="BtnRead" />
+    </div>
+</div>
+}
