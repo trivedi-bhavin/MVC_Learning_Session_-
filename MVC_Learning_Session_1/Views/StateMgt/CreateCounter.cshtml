@@ -1,0 +1,15 @@
+﻿
+@{
+    ViewBag.Title = "CreateCounter";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Create Counter</h2>
+@using (Html.BeginForm("CreateCounter", "StateMgt", FormMethod.Post)) {
+  <Div class="container">
+      <div class="form-group">
+          <input type="submit" id="ActionButton" name="ActionButton"/>
+      </div>
+  </Div>
+}
+

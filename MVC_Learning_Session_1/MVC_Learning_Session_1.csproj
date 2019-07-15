@@ -315,6 +315,8 @@
     <Content Include="Views\StateMgt\StateMgtDemoRead.cshtml" />
     <Content Include="Views\StateMgt\CreateCookie.cshtml" />
     <Content Include="Views\StateMgt\ReadCookie.cshtml" />
+    <Content Include="Views\StateMgt\CreateCounter.cshtml" />
+    <Content Include="Views\StateMgt\ShowCounter.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

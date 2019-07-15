@@ -17,6 +17,8 @@
 
         <li><a href=@Url.Action("CreateCookie","StateMgt")>Cookies - Write Details</a> </li>
         <li><a href="@Url.Action("ReadCookie","StateMgt")">Cookies - Read Details</a></li>
+        <li><a href= @Url.Action("CreateCounter","StateMgt") >Increment Counter using Temp Data</a> </li>
+        <li><a href=@Url.Action("ShowCounter","StateMgt") > Read Counter Value</a></li>
     </ul>
     <div class="row">
         <p>Org: @Session["org"]</p>

@@ -1,0 +1,19 @@
+﻿
+@{
+    ViewBag.Title = "ShowCounter";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Show Counter Value</h2>
+
+<div class="container">
+    @if (@TempData["cnt"] == null)
+    {
+        <p>Current Counter Value:= TempData Not Initialze </p>
+    }
+    else
+    {
+        <p>Current Counter Value:= @TempData["cnt"] </p>
+    }
+
+</div>

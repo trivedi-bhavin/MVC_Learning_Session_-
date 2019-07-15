@@ -95,5 +95,34 @@ namespace MVC_Learning_Session_1.Controllers
             }
             return View();
         }
+        //Action to open page - which used to increment counter value
+        public ActionResult CreateCounter()
+        {
+            
+            return View();
+        }
+        [HttpPost]
+        public ActionResult CreateCounter(string ActionButton)
+        {
+            
+            if (TempData["cnt"] == null)
+            {
+                TempData["cnt"] = 1;
+            }
+            else
+            {
+                int cnt = Convert.ToInt32(TempData["cnt"]);
+                cnt++;
+                TempData["cnt"] = cnt;
+            }
+            TempData.Keep();
+            return View();
+        }
+        public ActionResult ShowCounter()
+        {
+            //Used to retain value of counter across the instance of View
+            TempData.Keep();
+            return View();
+        }
     }
 }
