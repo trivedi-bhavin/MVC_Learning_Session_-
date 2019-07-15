@@ -15,7 +15,11 @@ namespace MVC_Learning_Session_1.Controllers
         Product[] products = new Product[]
         {
             new Product{Id=101,Name="Cinthol",Category="A",Rate=10},
-            new Product{Id=102,Name="Dettol",Category="B", Rate=20}
+            new Product{Id=102,Name="Dettol",Category="B", Rate=20},
+            new Product{Id=103,Name="Hamam",Category="B", Rate=30},
+            new Product{Id=104,Name="Pierce",Category="C", Rate=40},
+            new Product{Id=105,Name="Lux",Category="A", Rate=25}
+
         };
         // GET: Product
         public ActionResult Index()
@@ -73,6 +77,12 @@ namespace MVC_Learning_Session_1.Controllers
         {
             //return Content("We will do it ...");
             return Content(HttpUtility.HtmlEncode("We will do it"));
+        }
+        //To display Product List Using DataTable
+        public ActionResult ProductList()
+        {
+            var productlist = products.ToList();
+            return View(productlist);
         }
     }
 }
