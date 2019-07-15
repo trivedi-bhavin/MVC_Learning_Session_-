@@ -1,0 +1,28 @@
+﻿
+@{
+    ViewBag.Title = "CreateCookie";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Cookie - Store Data Into Cookies</h2>
+@using (Html.BeginForm())
+{
+<div class="container">
+    <div class="form-group">
+        <label>Name</label>
+        <input type="text" id="Name1" name="Name1" placeholder="Enter Name" />
+    </div>
+    <div class="form-group">
+        <label>Degree</label>
+        <input type="text" id="Degree" name="Degree" placeholder="Enter Degree" />
+    </div>
+    <div class="form-group">
+        <label>Grade</label>
+        <input type="text" id="Grade" name="Grade" placeholder="Enter Grade" />
+    </div>
+    <div class="form-group">
+        <input type="submit" id="Submit" name="Submit" />
+    </div>
+
+</div>
+}

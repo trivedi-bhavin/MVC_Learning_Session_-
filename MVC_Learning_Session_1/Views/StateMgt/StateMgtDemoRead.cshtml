@@ -12,14 +12,25 @@
     <div class="container ">
         <div class="row form-group">
             <label>Enter Name</label>
-            <input type="text" name="Name1" id="Name1"  value="@Session["Name1"]"/>
+            @{ 
+                var Name1 = "Session not initialized ";
+                var Name2 = "Session not initialized";
+            }
+            @if (@Session["Name1"] != null)
+            {
+                Name1 = Session["Name1"].ToString();
+                Name2 = Session["Name2"].ToString();
+
+            }
+            <input type="text" name="Name1" id="Name1"  value="@Name1"/>
         </div>
         <div class="row form-group">
             <label>Read Name</label>
-            <input type="text" name="Name2" id="Name2" value="@Session["Name2"]"/>
+            <input type="text" name="Name2" id="Name2" value="@Name2"/>
+            <input type="text" name="SessionID" value="@Session.SessionID"/>
         </div>
         <div class="row form-group">
-            <input type="submit" value="Overwrite to Session" name="BtnWrite" id="BtnWrite" />
+            @Html.ActionLink("Back to State Management Demo", "Index", "StateMgt")
         </div>
     </div>
 }

@@ -313,6 +313,8 @@
     <Content Include="Views\StateMgt\TempDataDemo.cshtml" />
     <Content Include="Views\StateMgt\StateMgtDemoWrite.cshtml" />
     <Content Include="Views\StateMgt\StateMgtDemoRead.cshtml" />
+    <Content Include="Views\StateMgt\CreateCookie.cshtml" />
+    <Content Include="Views\StateMgt\ReadCookie.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

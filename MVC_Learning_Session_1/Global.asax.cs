@@ -17,5 +17,11 @@ namespace MVC_Learning_Session_1
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
         }
+        //Added to have same session ID throught the instance.
+        protected void Session_Start(object sender, EventArgs e)
+        {
+            Session["org"] = "ICD";
+            Session.Timeout = 20;
+        }
     }
 }

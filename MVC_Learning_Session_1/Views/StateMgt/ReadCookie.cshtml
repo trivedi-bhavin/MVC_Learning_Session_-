@@ -1,0 +1,27 @@
+﻿
+@{
+    ViewBag.Title = "ReadCookie";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Cookie - Read Details from Cookie</h2>
+
+@using (Html.BeginForm())
+{
+    <div class="container">
+        <div class="form-group">
+            <label>Name</label>
+            <input type="text" id="Name1" value="@ViewBag.Name1"/>
+        </div>
+        <div class="form-group">
+            <label>Degree</label>
+            <input type="text" id="Degree" value="@ViewBag.Degree" />
+        </div>
+        <div class="form-group">
+            <label>Grade</label>
+            <input type="text" id="Grade" value="@ViewBag.Grade"/>
+        </div>
+        
+
+    </div>
+}

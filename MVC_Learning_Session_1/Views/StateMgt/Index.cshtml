@@ -13,7 +13,12 @@
         <li><a href=@Url.Action("ViewBagDemo","StateMgt", new { Name1="First Instace from Parent Page"})>ViewBag</a></li>
         <li><a href=@Url.Action("TempDataDemo", "StateMgt")>TempData</a></li>
         <li><a href=@Url.Action("StateMgtDemoWrite","StateMgt")>Write to Session Variable</a></li>
-        <li><a href=@Url.Action("StateMgtDemoRead","StateMgt")>Read From Variable</a></li>
-        <li>Cookies</li>
+        <li><a href=@Url.Action("StateMgtDemoRead","StateMgt")>Read From Session Variable</a></li>
+
+        <li><a href=@Url.Action("CreateCookie","StateMgt")>Cookies - Write Details</a> </li>
+        <li><a href="@Url.Action("ReadCookie","StateMgt")">Cookies - Read Details</a></li>
     </ul>
+    <div class="row">
+        <p>Org: @Session["org"]</p>
+    </div>
 </div>

@@ -60,5 +60,40 @@ namespace MVC_Learning_Session_1.Controllers
         {
             return View();
         }
+        //Open Page to create/store details into Cookie
+        public ActionResult CreateCookie(string Name1, string Degree, string Grade)
+        {
+            if (Name1 != null)
+            {
+                HttpCookie objCookie = new HttpCookie("Info");
+                objCookie.Values["Name1"] = Name1;
+                objCookie.Values["Degree"] = Degree;
+                objCookie.Values["Grade"] = Grade;
+                objCookie.Expires = DateTime.Now.AddDays(1);
+                Response.Cookies.Add(objCookie);
+
+            }
+            return View();
+        }
+        //Open Page to read details from Cookie
+        public ActionResult ReadCookie()
+        {
+            HttpCookie obj = Request.Cookies["Info"];
+            if (obj == null)
+            {
+                ViewBag.Name1 = "Cookie Not Exists ...";
+                ViewBag.Degree = "Cookie Not Exists ...";
+                ViewBag.Grade = "Cookie Not Exists ...";
+
+            }
+            else
+            {
+                ViewBag.Name1 = obj["Name1"];
+                ViewBag.Degree = obj["Degree"];
+                ViewBag.Grade = obj["Grade"];
+
+            }
+            return View();
+        }
     }
 }
