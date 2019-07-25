@@ -157,6 +157,7 @@
     <Compile Include="Controllers\ItemController.cs" />
     <Compile Include="Controllers\JQuerySampleController.cs" />
     <Compile Include="Controllers\MathOperationsController.cs" />
+    <Compile Include="Controllers\ModalPopupDemoController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Controllers\RazorSampleController.cs" />
     <Compile Include="Controllers\StateMgtController.cs" />
@@ -318,6 +319,9 @@
     <Content Include="Views\StateMgt\CreateCounter.cshtml" />
     <Content Include="Views\StateMgt\ShowCounter.cshtml" />
     <Content Include="Views\Product\ProductList.cshtml" />
+    <Content Include="Views\ModalPopupDemo\Index.cshtml" />
+    <Content Include="Views\ModalPopupDemo\OpenProductPartialView.cshtml" />
+    <Content Include="Views\ModalPopupDemo\OpenMainPage.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

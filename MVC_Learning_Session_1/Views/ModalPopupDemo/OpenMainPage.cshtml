@@ -1,0 +1,35 @@
+﻿
+@{
+    ViewBag.Title = "OpenMainPage";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<script src="~/Scripts/jquery-1.10.2.js"></script>
+
+<h2>OpenMainPage</h2>
+
+<input type="button" id="btnPartial" value="Open Partial View" class="btn btn-primary" />
+<div class="modal fade" tabindex="-1" id="loginModal"
+     data-keyboard="false" data-backdrop="static">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">×</button>
+            </div>
+            @*Container for Partial View*@ 
+            <div class="modal-body" id="myModalBodyDiv"> </div>
+           
+            <div class="modal-footer">
+                <button type="submit" class="btn btn-primary ">Sign</button>
+                <button type="button" id="btnHideModal" class="btn btn-primary ">Hide</button>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    $("#btnPartial").click(function () {
+        var url = "/ModalPopupDemo/OpenProductPartialView";
+        $("#myModalBodyDiv").load(url, function () {
+            $("#loginModal").modal("show");
+        });
+    });
+</script>

@@ -1,0 +1,93 @@
+﻿@{
+    ViewBag.Title = "DisplayProduct";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+ 
+}
+
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+
+<h1>Modal Popup Demo with Product List Index</h1>
+<button id="btnShowModal" type="button" class="btn btn-sm"> Open Dialog </button>
+<a id="btnPartialView"  href="javascript:void(0);" class="btn btn-sm btn-primary">Open Partial View</a>
+<input type="button" id="search" value="Search List"/>
+<div>
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="modal fade" tabindex="-1" id="loginModal"
+                     data-keyboard="false" data-backdrop="static">
+                    <div class="modal-dialog modal-lg">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal">
+                                    ×
+                                </button>
+                                <h4 class="modal-title">Login</h4>
+                            </div>
+                            <div class="modal-body">
+                              
+                                <form>
+                                    <div class="form-group">
+                                        <input class="form-control" type="text"
+                                               placeholder="Login Username" id="inputUserName" />
+                                    </div>
+                                    <div class="form-group">
+                                        <input class="form-control" placeholder="Login Password"
+                                               type="password" id="inputPassword" />
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="submit" class="btn btn-primary ">Sign</button>
+                                <button type="button" id="btnHideModal" class="btn btn-primary ">Hide</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</div>
+<script type="text/javascript">
+    $(document).ready(function () {
+  
+       // var TeamDetailPostBackURL = '/ModalPopupDemo/OpenProductPartialView';
+
+        $("#btnPartialView").click(function () {
+            var $buttonClicked = $(this);
+            var id = $buttonClicked.attr('data-id');
+            var options = { "backdrop": "static", keyboard: true };
+            $.ajax({
+                type: "GET",
+                //url: TeamDetailPostBackURL,
+                contentType: "application/json; charset=utf-8",
+               // data: { "Id": id },
+              //  datatype: "json",
+                success: function (data) {
+                    debugger;
+                    //$('#loginModal').html(data);
+                    //$('#loginModal').modal(options);
+                    $('#loginModal').modal('show');
+
+                },
+                error: function () {
+                    alert("Dynamic content load failed.");
+                }
+            });
+        });
+
+        //Search Click
+        $("#search").click(function () {
+            var route = '@Url.Action("OpenProductPartialView", "ModalPopupDemo")/';
+            alert(route);
+            $.get(url, function (data) {
+                $("#partial").html(data);
+                $("#partial").modal('show');
+            });
+        })
+    });
+
+
+</script>  
