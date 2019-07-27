@@ -1,30 +1,40 @@
 ﻿@model IEnumerable<MVC_Learning_Session_1.Models.Product>
 
 <div>
+    <form>
+        <h4>Login - @Model.ToList().Count</h4>
 
-    <h4 >Login - @Model.ToList().Count</h4>
-    <table class="table-bordered">
-        <thead>
-            <tr>
-
-                <th>@Html.DisplayNameFor(k => k.Id)</th>
-                <th>@Html.DisplayNameFor(k => k.Name)</th>
-                <th>@Html.DisplayNameFor(k => k.Category)</th>
-                <th>@Html.DisplayNameFor(k => k.Rate)</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var item in Model)
-            {
+        <table class="table-bordered">
+            <thead>
                 <tr>
-                    <td>@Html.DisplayFor(k => item.Id)</td>
-                    <td>@Html.DisplayFor(k => item.Name)</td>
-                    <td>@Html.DisplayFor(k => item.Category)</td>
-                    <td>@Html.DisplayFor(k => item.Rate)</td>
-                 
-                </tr>
-            }
-        </tbody>
-    </table>
 
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Rate</th>
+                    <th>Category</th>
+                </tr>
+            </thead>
+            <tbody>
+
+                @{var i = 0;}
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td><input type="text" name="[@i].Id" value="@item.Id" /></td>
+                        <td><input type="text" name="[@i].Name" value="@item.Name" /></td>
+                        <td><input type="text" name="[@i].Rate" value="@item.Rate" /></td>
+                        <td><input type="text" name="[@i].Category" value="@item.Category" /></td>
+                    </tr>
+                    i += 1;
+                }
+            </tbody>
+        </table>
+        <div class="row">
+            <h3>Hello WOrld</h3>  <input name="btnSubmit"  class="btn btn-primary" type="submit"  formaction="/ModalPopupDemo/SubmitProducts" formmethod="post">Submit Details</>
+        </div>
+
+            <div class="row form-group">
+              
+            </div>
+    </form>
 </div>

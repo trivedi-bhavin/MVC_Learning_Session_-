@@ -34,5 +34,13 @@ namespace MVC_Learning_Session_1.Controllers
         {
             return View();
         }
+        [HttpPost]
+        public ActionResult SubmitProducts(List<Product> objList, FormCollection fc)
+        {
+            //Learned from Reference Article -https://haacked.com/archive/2008/10/23/model-binding-to-a-list.aspx/
+            // List<Product> obj1 = obj;
+            return View("OpenMainPage");
+           
+        }
     }
 }
