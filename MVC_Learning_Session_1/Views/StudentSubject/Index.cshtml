@@ -1,0 +1,36 @@
+﻿@model IEnumerable<MVC_Learning_Session_1.Models.VM_Subjects_Group>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container">
+    <h2>Index-DropDownListDemo</h2>
+    <table class="table table-bordered">
+        <thead>
+            <Tr>
+                <td>
+                    Code
+                </td>
+                <td>
+                    Name
+                </td>
+                <td>
+                    Type
+                </td>
+            </Tr>
+        </thead>
+        <tbody>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.ErollmentNo</td>
+                    <td>@Html.DropDownList("subjectList", item.SubjectName)</td>
+                    <td>@item.SubjectType</td>
+
+                </tr>
+            }
+        </tbody>
+        </table>
+</div>
