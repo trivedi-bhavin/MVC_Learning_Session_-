@@ -5,32 +5,41 @@
 }
 
 <div class="container">
-    <h2>Index-DropDownListDemo</h2>
-    <table class="table table-bordered">
-        <thead>
-            <Tr>
-                <td>
-                    Code
-                </td>
-                <td>
-                    Name
-                </td>
-                <td>
-                    Type
-                </td>
-            </Tr>
-        </thead>
-        <tbody>
+    @using (Html.BeginForm("Submit", "StudentSubject", new { EnrollmentNo = @ViewBag.EnrollmentNo }, FormMethod.Post))
+    {
+        <h2>Index-DropDownListDemo</h2>
+        <table class="table table-bordered">
+            <thead>
+                <Tr>
+                    <td>
+                        Code
+                    </td>
+                    <td>
+                        Name
+                    </td>
+                    <td>
+                        Type
+                    </td>
+                </Tr>
+            </thead>
+            <tbody>
+                @{ var i = 0;}
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.ErollmentNo</td>
+                        <td style="display:none"> <input type="text" name="[@i].ErollmentNo" value="@item.ErollmentNo" readonly></td>
+                        @*<td>@Html.DropDownList("subjectList", item.SubjectName)</td>*@
+                        <td>@Html.DropDownList("[" + @i + "].SelectedItemName", item.SubjectName)</td>
+                        @*<td>@item.SubjectType</td>*@
+                        <td><input type="text" name="[@i].SubjectType" value="@item.SubjectType"></td>
 
-            @foreach (var item in Model)
-            {
-                <tr>
-                    <td>@item.ErollmentNo</td>
-                    <td>@Html.DropDownList("subjectList", item.SubjectName)</td>
-                    <td>@item.SubjectType</td>
-
-                </tr>
-            }
-        </tbody>
+                    </tr>
+                    i += 1;
+                }
+            </tbody>
         </table>
+        <input type="submit" value="Submit Details" />
+    }
 </div>
+

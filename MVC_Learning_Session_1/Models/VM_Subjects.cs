@@ -33,7 +33,7 @@ namespace MVC_Learning_Session_1.Models
         public int ErollmentNo { get; set; }
         public string SubjectType { get; set; }
         public List<SelectListItem> SubjectName { get; set; }
-
+        public string SelectedItemName { get; set; }
         public static List<VM_Subjects_Group> GetVM_Subjects_Group()
         {
             List<VM_Subjects_Group> objSubjectGroupList = new List<VM_Subjects_Group>();

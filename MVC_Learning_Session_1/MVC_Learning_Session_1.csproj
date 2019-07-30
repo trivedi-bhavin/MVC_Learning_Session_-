@@ -325,6 +325,7 @@
     <Content Include="Views\ModalPopupDemo\OpenProductPartialView.cshtml" />
     <Content Include="Views\ModalPopupDemo\OpenMainPage.cshtml" />
     <Content Include="Views\StudentSubject\Index.cshtml" />
+    <Content Include="Views\StudentSubject\Index2.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
